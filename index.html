@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS mid-term exercise</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1 class="main_title">Rock, Paper, Scissors Game</h1>
+    <section>
+      <h2 class="subtitle">Choose your play here:</h2>
+      <select class="select_menu js_menu" name="game" id="game">
+        <option value="" disabled selected>Select your move</option>
+        <option class="rock" value="Rock">Rock</option>
+        <option class="paper" value="Paper">Paper</option>
+        <option class="scissors" value="Scissors">Scissors</option>
+      </select>
+      <button class="btn js_btn">Play</button>
+    </section>
+    <h3 class="playing_title js_status">Let's Play!</h3>
+    <ul class="ul_list js_score">
+      <li>Player:</li>
+      <li>Computer:</li>
+    </ul>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
