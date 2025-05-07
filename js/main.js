@@ -3,32 +3,54 @@ const menu = document.querySelector('.js_menu');
 const btn = document.querySelector('.js_btn');
 const status = document.querySelector('.js_status');
 const score = document.querySelector('.js_score');
-let result
-
+let playerScore = 0;
+let PCScore = 0;
 
 function getRandomNumber(max) { 
   return Math.ceil(Math.random() * max); 
+}
+
+function getPCResult() {
+  const randomNum = getRandomNumber(9);
+  if (randomNum >= 1 && randomNum <= 3) {
+    return 'Rock';
+  } else if (randomNum >= 4 && randomNum <= 6) {
+    return 'Paper';
+  } else {
+    return 'Scissors';
   }
+}
 
-  if (getRandomNumber >= 1 && getRandomNumber <=3) {
-    result = 'Rock'}
-    else if (getRandomNumber >= 4 && getRandomNumber <=6) {
-      result = 'Paper'}
-      else if (getRandomNumber >= 7 && getRandomNumber <=9) {
-        result = 'Scissors'};
-
+function winner (playerChose, PCChose) {
+  if (playerChose === PCChose) {
+    return 'draw';
+  }
+ else if (
+  (playerChose === 'Rock' && PCChose === 'Scissors') ||
+  (playerChose === 'Scissors' && PCChose === 'Paper') ||
+  (playerChose === 'Paper' && PCChose === 'Rock')
+ ) {
+  return 'player'
+ }
+else {return 'PC';
+}
+}
 btn.addEventListener('click', (ev) => {
   ev.preventDefault();
-        
-    const newTask = taskInput.value;
-          
-          //tasks[ tasks.length ] = newTask;
-          tasks.push( newTask );
-          //tasks.unshift( newTask );
-        
-          console.log(tasks);
-        
-          taskOl.innerHTML = tasks;
-          
-        
+  const playerResult = menu.value; 
+  const PCResult = getPCResult(); 
+  
+  console.log('Player chose:', playerResult);
+  console.log('PC chose:', PCResult);
+  
+  const result = winner (playerResult, PCResult)
+  console.log(result)
 
+  if (result === 'player') {
+    playerScore++;
+    status.textContent = `You win! ${playerResult} beats ${PCResult}`;
+  } else if (result === 'PC') {
+    PCScore++;
+  status.textContent = `You lose! ${playerResult} is beaten by ${PCResult}`;}
+  else { status.textContent = `Draw! ${playerResult} equals ${PCResult}`;}
+});
