@@ -48,9 +48,11 @@ btn.addEventListener('click', (ev) => {
 
   if (result === 'player') {
     playerScore++;
-    status.textContent = `You win! ${playerResult} beats ${PCResult}`;
+    status.innerHTML = `You win! ${playerResult} beats ${PCResult}`;
   } else if (result === 'PC') {
     PCScore++;
-  status.textContent = `You lose! ${playerResult} is beaten by ${PCResult}`;}
-  else { status.textContent = `Draw! ${playerResult} equals ${PCResult}`;}
+  status.innerHTML = `You lose! ${playerResult} is beaten by ${PCResult}`;}
+  else { status.innerHTML = `Draw! ${playerResult} equals ${PCResult}`;}
+
+score.innerHTML = `Player: ${playerScore} | Computer: ${PCScore}`
 });
